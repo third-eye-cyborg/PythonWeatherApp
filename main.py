@@ -12,7 +12,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 
 class WeatherApp():
     def __init__(self, lat, lon):
-        response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid=YOURAPIKEY}&units=imperial").json()
+        response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid=YOURAPIKEY&units=imperial").json()
 
         responseData = pd.json_normalize(response, record_path="daily")
         print(type(responseData))
